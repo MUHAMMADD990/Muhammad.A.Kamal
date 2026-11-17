@@ -59,7 +59,7 @@ function App() {
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-sm font-bold text-white">MA</div>
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-500">Muhammad Ahmed</p>
-              <p className="text-xs text-slate-700">CNC Machinist</p>
+              <p className="text-xs text-slate-700">Advanced CNC &amp; Manufacturing Specialist</p>
             </div>
           </div>
 
@@ -93,7 +93,7 @@ function App() {
               </div>
 
               <h1 className="max-w-xl text-4xl font-black tracking-[-0.07em] text-slate-900 sm:text-5xl lg:text-7xl">
-                CNC Machinist
+                Advanced CNC &amp; Manufacturing Specialist
                 <span className="mt-3 block text-sky-800">Multi-Axis &amp; Mill-Turn Specialist</span>
               </h1>
 

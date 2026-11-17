@@ -5,9 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Muhammad Ahmed Kamal — CNC Machinist and Multi-Axis Mill-Turn specialist focused on precision machining and manufacturing excellence."
+      content="Professional portfolio of Muhammad Ahmed Kamal, an advanced CNC and multi-axis machining specialist in Alexandria, Egypt."
     />
     <title>Muhammad Ahmed Kamal | CNC Machinist</title>
+    <link rel="canonical" href="https://muhammadd990.github.io/Muhammad.A.Kamal/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://muhammadd990.github.io/Muhammad.A.Kamal/" />
+    <meta property="og:title" content="Muhammad Ahmed Kamal | CNC Machinist" />
+    <meta
+      property="og:description"
+      content="Professional portfolio of Muhammad Ahmed Kamal, an advanced CNC and multi-axis machining specialist in Alexandria, Egypt."
+    />
+    <meta property="og:image" content="https://muhammadd990.github.io/Muhammad.A.Kamal/public/muhammad-ahmed.jpg" />
+    <meta property="og:image:alt" content="Portrait of Muhammad Ahmed Kamal" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_AR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Muhammad Ahmed Kamal | CNC Machinist" />
+    <meta
+      name="twitter:description"
+      content="Professional portfolio of Muhammad Ahmed Kamal, an advanced CNC and multi-axis machining specialist in Alexandria, Egypt."
+    />
+    <meta name="twitter:image" content="https://muhammadd990.github.io/Muhammad.A.Kamal/public/muhammad-ahmed.jpg" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Muhammad Ahmed Kamal",
+        "jobTitle": "Advanced CNC & Manufacturing Specialist",
+        "url": "https://muhammadd990.github.io/Muhammad.A.Kamal/",
+        "image": "https://muhammadd990.github.io/Muhammad.A.Kamal/public/muhammad-ahmed.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Alexandria",
+          "addressCountry": "EG"
+        },
+        "sameAs": ["https://www.linkedin.com/in/muhammad-a-0016382ba"]
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
     <style>
       :root {
@@ -83,6 +118,14 @@
       }
 
       .nav a:hover { color: var(--primary-2); }
+
+      .language-toggle {
+        padding: 9px 14px;
+        border-color: #754052;
+        background: var(--accent-soft);
+        color: var(--primary-2);
+        white-space: nowrap;
+      }
 
       .btn {
         display: inline-flex;
@@ -313,6 +356,17 @@
         background: radial-gradient(circle at top left, rgba(165, 44, 78, 0.2), transparent 32%);
       }
 
+      @keyframes gentle-rise {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       .hero-inner {
         position: relative;
         display: grid;
@@ -326,6 +380,14 @@
         opacity: 1;
         transform: translateY(0);
         transition: transform 0.8s ease, opacity 0.8s ease, filter 0.8s ease;
+      }
+
+      .hero-copy {
+        animation: gentle-rise 0.7s ease-out backwards;
+      }
+
+      .hero-card {
+        animation: gentle-rise 0.8s 0.12s ease-out backwards;
       }
 
       body.scrolled .hero-copy {
@@ -414,21 +476,79 @@
       .hero-glow {
         position: absolute;
         inset: 10% 8%;
+        z-index: 0;
         border-radius: 2rem;
         background: linear-gradient(135deg, rgba(165, 44, 78, 0.3), rgba(148, 163, 184, 0.04), rgba(84, 20, 38, 0.24));
         filter: blur(30px);
       }
 
+      .portrait-stage {
+        position: relative;
+        width: min(390px, 82vw);
+        height: min(390px, 82vw);
+        margin: 0 auto;
+        isolation: isolate;
+      }
+
+      .gcode-backdrop {
+        position: absolute;
+        inset: -20% -40%;
+        z-index: 0;
+        overflow: hidden;
+        direction: ltr;
+        pointer-events: none;
+        -webkit-mask-image: radial-gradient(ellipse at center, transparent 0 34%, rgba(0, 0, 0, 0.8) 52%, #000 78%);
+        mask-image: radial-gradient(ellipse at center, transparent 0 34%, rgba(0, 0, 0, 0.8) 52%, #000 78%);
+      }
+
+      .gcode-stream {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: grid;
+        gap: 0;
+        color: rgba(238, 181, 198, 0.94);
+        font: 700 15px/1.9 ui-monospace, SFMono-Regular, Consolas, monospace;
+        white-space: pre;
+        text-shadow: 0 0 12px rgba(208, 138, 159, 0.28);
+        filter: blur(0.7px);
+        opacity: 0.76;
+        animation: gcode-flow 34s linear infinite;
+      }
+
+      .gcode-stream pre {
+        margin: 0;
+        font: inherit;
+      }
+
+      .gcode-stream-right {
+        right: 0;
+        left: auto;
+        color: rgba(238, 181, 198, 0.86);
+        filter: blur(0.9px);
+        opacity: 0.66;
+        animation-duration: 42s;
+        animation-delay: -17s;
+      }
+
+      @keyframes gcode-flow {
+        to {
+          transform: translateY(-50%);
+        }
+      }
+
       .hero-card {
         position: relative;
+        z-index: 2;
         width: min(430px, 100%);
         text-align: center;
       }
 
       .hero-card img {
-        width: min(390px, 82vw);
-        height: min(390px, 82vw);
-        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
         aspect-ratio: 1;
         border: 6px solid #30232a;
         border-radius: 50%;
@@ -488,6 +608,18 @@
         color: var(--muted);
         line-height: 1.6;
         font-size: 14px;
+      }
+
+      .scroll-reveal {
+        opacity: 0;
+        translate: 0 14px;
+        transition: opacity 0.55s ease, translate 0.55s ease;
+        transition-delay: var(--reveal-delay, 0ms);
+      }
+
+      .scroll-reveal.is-visible {
+        opacity: 1;
+        translate: 0 0;
       }
 
       section {
@@ -822,6 +954,28 @@
         background: var(--card);
       }
 
+      @media (hover: hover) {
+        .stat,
+        .expertise-card,
+        .service-card,
+        .project-card,
+        .certification-card {
+          transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+        }
+
+        .stat:hover,
+        .expertise-card:hover,
+        .service-card:hover,
+        .project-card:hover,
+        .certification-card:hover {
+          transform: translateY(-3px);
+        }
+
+        .certification-card:hover {
+          border-color: #754052;
+        }
+      }
+
       .certification-preview {
         display: grid;
         place-items: center;
@@ -1061,8 +1215,8 @@
 
       .experience-timeline {
         display: grid;
-        gap: 22px;
-        margin-top: 28px;
+        gap: 14px;
+        margin-top: 20px;
         padding-left: 20px;
         border-left: 1px solid #633044;
       }
@@ -1089,22 +1243,22 @@
       }
 
       .experience-company {
-        margin-top: 4px;
+        margin-top: 2px;
         color: var(--primary-2);
         font-size: 14px;
         font-weight: 700;
       }
 
       .experience-dates {
-        margin-top: 3px;
+        margin-top: 1px;
         color: var(--muted);
         font-size: 13px;
       }
 
       .experience-responsibilities {
         display: grid;
-        gap: 5px;
-        margin: 10px 0 0;
+        gap: 3px;
+        margin: 6px 0 0;
         padding-left: 18px;
         color: #ded3d8;
         font-size: 13px;
@@ -1115,7 +1269,7 @@
         border-radius: 2rem;
         background: var(--card);
         border: 1px solid var(--line);
-        padding: 28px;
+        padding: 24px;
         box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03);
       }
 
@@ -1239,10 +1393,24 @@
           padding: 9px 14px;
           white-space: nowrap;
         }
+
+        .nav .language-toggle {
+          flex: 0 0 auto;
+        }
       }
 
       @media (max-width: 640px) {
         .hero { padding-top: 52px; }
+
+        .gcode-backdrop {
+          inset: -16% -42%;
+        }
+
+        .gcode-stream {
+          font-size: 12px;
+          filter: blur(0.8px);
+          opacity: 0.68;
+        }
 
         .nav {
           gap: 14px;
@@ -1278,6 +1446,84 @@
           width: min(390px, 82vw);
           height: min(390px, 82vw);
         }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .hero-copy,
+        .hero-card {
+          animation: none;
+          transition: none;
+        }
+
+        body.scrolled .hero-copy,
+        body.scrolled .hero-card {
+          transform: none;
+          filter: none;
+        }
+
+        .gcode-stream {
+          animation: none;
+        }
+
+        .scroll-reveal {
+          opacity: 1;
+          translate: none;
+          transition: none;
+        }
+
+        .stat,
+        .expertise-card,
+        .service-card,
+        .project-card,
+        .certification-card {
+          transition: none;
+        }
+      }
+
+      [dir="rtl"] body {
+        font-family: Tahoma, "Segoe UI", Arial, sans-serif;
+      }
+
+      [dir="rtl"] h1,
+      [dir="rtl"] .portrait-name,
+      [dir="rtl"] .section-header {
+        letter-spacing: normal;
+      }
+
+      [dir="rtl"] .eyebrow,
+      [dir="rtl"] .section-tag {
+        letter-spacing: 0.04em;
+      }
+
+      [dir="rtl"] .experience-timeline {
+        padding-right: 20px;
+        padding-left: 0;
+        border-right: 1px solid #633044;
+        border-left: 0;
+      }
+
+      [dir="rtl"] .experience-entry::before {
+        right: -25px;
+        left: auto;
+      }
+
+      [dir="rtl"] .experience-responsibilities {
+        padding-right: 18px;
+        padding-left: 0;
+      }
+
+      [dir="rtl"] .service-list li::before {
+        margin-right: 0;
+        margin-left: 8px;
+      }
+
+      [dir="rtl"] .project-image-pair img + img {
+        border-right: 1px solid var(--line);
+        border-left: 0;
       }
     </style>
   </head>
@@ -1360,6 +1606,7 @@
           <a href="#experience">Experience</a>
           <a href="#certifications">Certifications</a>
           <a href="#contact">Contact</a>
+          <button class="btn language-toggle" id="language-toggle" type="button" aria-label="Switch to Arabic">العربية</button>
           <button class="btn btn-primary nav-cv-request" type="button" data-open-cv-dialog>Request CV</button>
         </nav>
       </div>
@@ -1371,11 +1618,11 @@
           <div class="hero-copy">
             <div class="eyebrow"><span>✦</span> Precision in Every Process</div>
             <h1>
-              CNC Machinist
-              <span class="highlight">Multi-Axis &amp; Mill-Turn Specialist</span>
+              Advanced CNC &amp; Manufacturing Specialist
+              <span class="highlight">Multi-Axis Machining &amp; Mill-Turn Operations</span>
             </h1>
             <p class="lead">
-              Precision machining, CNC programming, tooling strategy, and process control for complex manufacturing environments. I help teams move from engineering drawings to reliable production output with speed, quality, and consistency.
+              Precision machining, CNC programming, tooling strategy, and process control for complex manufacturing environments. Supports teams in turning engineering drawings into reliable production output with speed, quality, and consistency.
             </p>
 
             <div class="cta-row">
@@ -1393,10 +1640,79 @@
           <div class="hero-card-wrap">
             <div class="hero-glow"></div>
             <div class="hero-card">
-              <img src="public/muhammad-ahmed.jpg" alt="Portrait of Muhammad Ahmed Kamal" />
+              <div class="portrait-stage">
+                <div class="gcode-backdrop" aria-hidden="true">
+                  <div class="gcode-stream">
+                    <pre>G21
+G0 T1212
+G18
+G97 S824 M03
+G0 G54 X114. Z126.203 M8
+G50 S3600
+G96 S295
+G99 G1 X-1.6 F.2
+G0 Z128.203
+X114.
+Z125.406
+G1 X-1.6 F.2
+G0 Z127.406
+X114.
+G28 U0. V0. W0. M05
+T1200
+M01
+G21
+G0 T1212
+G18
+G97 S824 M03
+G0 G54 X114. Z126.203 M8
+G50 S3600
+G96 S295
+G99 G1 X-1.6 F.2
+G0 Z128.203
+X114.
+Z125.406
+G1 X-1.6 F.2
+G0 Z127.406
+X114.
+G28 U0. V0. W0. M05
+T1200
+M01</pre>
+                  </div>
+                  <div class="gcode-stream gcode-stream-right">
+                    <pre>G21
+G0 T1212
+G18
+G97 S1042 M03
+G0 G54 X90.101 Z119.914
+G50 S3600
+G96 S295
+G1 X87.273 Z118.5 F.2
+Z60.
+X91.
+X95.
+G0 Z119.914
+X86.374
+G1 X83.545 Z118.5 F.2
+G0 T1212
+G18
+G97 S1042 M03
+G0 G54 X90.101 Z119.914
+G50 S3600
+G96 S295
+G1 X87.273 Z118.5 F.2
+Z60.
+X91.
+X95.
+G0 Z119.914
+X86.374
+G1 X83.545 Z118.5 F.2</pre>
+                  </div>
+                </div>
+                <img src="public/muhammad-ahmed.jpg" alt="Portrait of Muhammad Ahmed Kamal" />
+              </div>
               <div class="portrait-caption">
                 <h2 class="portrait-name">Muhammad Ahmed Kamal</h2>
-                <p class="portrait-role">CNC Machinist · Multi-Axis &amp; Mill-Turn Specialist</p>
+                <p class="portrait-role">Advanced CNC &amp; Manufacturing Specialist</p>
               </div>
             </div>
           </div>
@@ -1419,11 +1735,11 @@
           </div>
           <div class="stat">
             <div class="stat-value">5+</div>
-            <div class="stat-label">CNC control systems familiar</div>
+            <div class="stat-label">CNC control systems</div>
           </div>
           <div class="stat">
             <div class="stat-value">DMG MORI</div>
-            <div class="stat-label">Current mill-turn focus</div>
+            <div class="stat-label">Current focus: mill-turn machining</div>
           </div>
         </div>
       </section>
@@ -1432,12 +1748,12 @@
         <div class="container intro-grid">
           <div>
             <div class="section-tag">About Me</div>
-            <h2 class="section-header">Professional CNC knowledge grounded in real production work.</h2>
+            <h2 class="section-header">CNC expertise built through hands-on production experience.</h2>
             <p class="lead-copy">
-              I am a CNC machining specialist with practical experience in turning, milling, mill-turn operations, and multi-axis machining. My background includes CNC programming, machine setup, tooling selection, process planning, troubleshooting, and quality-focused execution.
+              CNC machining specialist with practical experience in turning, milling, mill-turn operations, and multi-axis machining. Professional experience includes CNC programming, machine setup, tooling selection, process planning, troubleshooting, and quality-focused execution.
             </p>
             <p class="lead-copy">
-              I understand that successful manufacturing depends on the relationship between material behavior, machine capability, cutting conditions, tooling, and geometry control. That is the foundation of how I work every day.
+              Successful manufacturing depends on the relationship between material behavior, machine capability, cutting conditions, tooling, and geometry control. These factors form the foundation of an effective machining approach.
             </p>
           </div>
 
@@ -1456,28 +1772,28 @@
       <section class="expertise" id="expertise">
         <div class="expertise-inner">
           <div class="section-tag" style="color: #d08a9f;">Expertise</div>
-          <h2 class="section-header" style="color: #f7f1f3;">Technical capability across advanced machining and manufacturing operations.</h2>
+          <h2 class="section-header" style="color: #f7f1f3;">Technical expertise across advanced machining and manufacturing operations.</h2>
 
           <div class="expertise-grid">
             <div class="expertise-card">
               <div class="icon-box">⚙️</div>
               <h3>CNC Turning</h3>
-              <p>Precision-driven machining support with strong process understanding and setup discipline.</p>
+              <p>Precision-focused machining backed by strong process knowledge and disciplined setup practices.</p>
             </div>
             <div class="expertise-card">
               <div class="icon-box">🖥️</div>
               <h3>CNC Milling</h3>
-              <p>Precision machining with attention to performance, stability, and repeatable quality.</p>
+              <p>Precision machining focused on performance, process stability, and consistent quality.</p>
             </div>
             <div class="expertise-card">
               <div class="icon-box">🛠️</div>
               <h3>Mill-Turn</h3>
-              <p>Controlling complex workholding and multi-operation cycles for demanding components.</p>
+              <p>Managing complex workholding and multi-operation cycles for demanding components.</p>
             </div>
             <div class="expertise-card">
               <div class="icon-box">🔄</div>
               <h3>Multi-Axis</h3>
-              <p>Advanced strategy development for efficient, geometry-driven production machining.</p>
+              <p>Developing advanced strategies for efficient machining of complex geometries.</p>
             </div>
           </div>
         </div>
@@ -1487,10 +1803,6 @@
         <div class="container">
           <div class="section-tag">Machines &amp; CNC Control Systems</div>
           <h2 class="section-header">DMG MORI CLX 450 TC</h2>
-          <article class="expertise-card machines-primary">
-            <div class="section-tag">Primary Machine</div>
-            <div id="primary-machine-details"></div>
-          </article>
           <div id="cnc-control-systems"></div>
         </div>
       </section>
@@ -1500,7 +1812,7 @@
           <div class="section-tag">Technical Toolkit</div>
           <h2 class="section-header">Software &amp; Technical Tools</h2>
           <p class="software-tools-intro">
-            A collection of CAD, CAM, and CNC programming tools used in engineering design, machining strategy development, CNC programming, simulation, and manufacturing workflows.
+            CAD, CAM, and CNC programming tools used for engineering design, machining strategy, simulation, and manufacturing.
           </p>
 
           <div class="software-category">
@@ -1618,14 +1930,14 @@
 
       <section class="services" id="services">
         <div class="container">
-          <div class="section-tag">What I Do</div>
-          <h2 class="section-header">Focused support for production, process reliability, and precision output.</h2>
+          <div class="section-tag">Services</div>
+          <h2 class="section-header">Focused support for reliable processes and high-precision production.</h2>
 
           <div class="services-grid">
             <article class="service-card">
               <div class="service-number">01</div>
               <h3>CNC Programming</h3>
-              <p>Creating efficient, safe, and production-ready machining programs for turning and milling operations.</p>
+              <p>Creating efficient, safe, production-ready CNC programs for turning and milling operations.</p>
               <ul class="service-list">
                 <li>G-code / M-code editing</li>
                 <li>Program optimization</li>
@@ -1636,7 +1948,7 @@
             <article class="service-card">
               <div class="service-number">02</div>
               <h3>Machine Setup &amp; Execution</h3>
-              <p>Setup guidance for tool paths, workholding, offsets, and machine readiness to protect quality and efficiency.</p>
+              <p>Guidance on toolpaths, workholding, offsets, and machine readiness to help ensure quality and efficiency.</p>
               <ul class="service-list">
                 <li>Workholding planning</li>
                 <li>Tooling strategy</li>
@@ -1647,7 +1959,7 @@
             <article class="service-card">
               <div class="service-number">03</div>
               <h3>Process Improvement</h3>
-              <p>Identifying bottlenecks, reducing scrap risk, and improving productivity across demanding production setups.</p>
+              <p>Identifying bottlenecks, reducing scrap risk, and improving productivity in demanding production environments.</p>
               <ul class="service-list">
                 <li>Technical troubleshooting</li>
                 <li>Cutting condition analysis</li>
@@ -1663,7 +1975,7 @@
           <div class="section-tag">Learning &amp; Credentials</div>
           <h2 class="section-header">Certifications &amp; Professional Development</h2>
           <p class="certification-intro">
-            A continuous commitment to developing technical knowledge and strengthening practical capabilities in CNC machining, manufacturing technology, CAD/CAM, materials science, and professional development.
+            Ongoing development of technical knowledge and practical skills in CNC machining, manufacturing technology, CAD/CAM, materials science, and related fields.
           </p>
 
           <div class="certification-category">
@@ -1828,7 +2140,7 @@
                 <span class="project-tag">B-Axis CNC Machining</span>
                 <h3>B-Axis Multi-Face Machining Component</h3>
                 <p>
-                  A complex multi-face component developed for B-axis CNC machining operations. Features multiple angular faces, precision bores, and bolt-hole patterns machined in different orientations. Demonstrates advanced multi-axis machining strategies, positioning accuracy, and complex part geometry.
+                  This complex multi-face component was developed for B-axis CNC machining. It features multiple angular faces, precision bores, and bolt-hole patterns machined in different orientations. The project demonstrates advanced multi-axis strategies, accurate positioning, and the machining of complex geometries.
                 </p>
               </div>
             </article>
@@ -1843,7 +2155,7 @@
                 <span class="project-tag">Multi-Axis CNC Machining</span>
                 <h3>CNC Flanged Shaft Housing</h3>
                 <p>
-                  Precision-designed flanged shaft housing for rotary mechanical assembly. Machined using multi-axis CNC with internal and external features for alignment and secure mounting.
+                  This precision-designed flanged shaft housing is intended for rotary mechanical assemblies. It is machined using multi-axis CNC and includes internal and external features for alignment and secure mounting.
                 </p>
               </div>
             </article>
@@ -1857,7 +2169,7 @@
                 <span class="project-tag">4-Axis CNC Turning (C-Y)</span>
                 <h3>Bearing Cam</h3>
                 <p>
-                  A precision-engineered cylindrical cam featuring a central bore and complex external cam profiles. Developed using 4-axis CNC turning (C-Y) to machine the contoured features around the cylindrical surface. Designed and programmed using SolidWorks and Mastercam, demonstrating advanced multi-axis machining capabilities.
+                  This precision-engineered cylindrical cam features a central bore and complex external cam profiles. It was developed using 4-axis CNC turning (C-Y) to machine contoured features around the cylindrical surface. Designed and programmed using SolidWorks and Mastercam, the project demonstrates advanced multi-axis machining capabilities.
                 </p>
               </div>
             </article>
@@ -1872,7 +2184,7 @@
                 <span class="project-tag">4-Axis Turning &amp; Wire EDM</span>
                 <h3>Grooved Motion Cam</h3>
                 <p>
-                  Precision motion cam manufactured using 4-axis CNC turning (C-Y) combined with internal Wire EDM for high-accuracy spline geometry. Designed to convert rotary motion into controlled linear movement with tight dimensional tolerance and optimized surface finish.
+                  This precision motion cam was manufactured using 4-axis CNC turning (C-Y), combined with internal wire EDM to produce high-accuracy spline geometry. It converts rotary motion into controlled linear movement, with tight dimensional tolerances and an optimized surface finish.
                 </p>
               </div>
             </article>
@@ -1886,7 +2198,7 @@
                 <span class="project-tag">2-Axis CNC Turning</span>
                 <h3>Screed Roller</h3>
                 <p>
-                  Heavy-duty roller shaft machined using 2-axis CNC turning. The part includes multiple stepped and tapered profiles requiring precise toolpath control and stable machining conditions. Special attention was given to maintaining dimensional accuracy and surface finish due to the large size and weight of the component.
+                  Heavy-duty roller shaft machined using 2-axis CNC turning. The part includes multiple stepped and tapered profiles requiring precise toolpath control and stable machining conditions.                   Special attention was paid to dimensional accuracy and surface finish because of the component’s size and weight.
                 </p>
               </div>
             </article>
@@ -1901,7 +2213,7 @@
                 <span class="project-tag">Precision CNC Turning</span>
                 <h3>Core Shaft</h3>
                 <p>
-                  This part is a precision-turned core shaft used in mold assemblies. It features stepped diameters, a threaded end, and a flange for secure mounting. The geometry supports proper alignment and assembly. Toolpaths are optimized for surface quality and dimensional accuracy.
+                  This precision-turned core shaft is used in mold assemblies. It features stepped diameters, a threaded end, and a flange for secure mounting. Its geometry supports proper alignment and assembly, and its toolpaths are optimized for surface quality and dimensional accuracy.
                 </p>
               </div>
             </article>
@@ -1931,19 +2243,19 @@
           <div class="process-grid">
             <div class="step">
               <div class="step-no">1</div>
-              <p>Engineering drawing interpretation and critical feature review.</p>
+              <p>Interpret engineering drawings and review critical features.</p>
             </div>
             <div class="step">
               <div class="step-no">2</div>
-              <p>Machining strategy, tooling selection, and setup planning.</p>
+              <p>Develop machining strategies, select tooling, and plan setups.</p>
             </div>
             <div class="step">
               <div class="step-no">3</div>
-              <p>CAM programming, simulation, and verification before cutting.</p>
+              <p>Program, simulate, and verify CAM operations before machining.</p>
             </div>
             <div class="step">
               <div class="step-no">4</div>
-              <p>Machine setup, production execution, and final inspection.</p>
+              <p>Set up the machine, run production, and inspect finished parts.</p>
             </div>
           </div>
         </div>
@@ -1953,7 +2265,7 @@
         <div class="container values-grid">
           <div class="panel">
             <div class="section-tag">Professional Experience</div>
-            <h2 class="section-header">A progressive career in CNC machining, CAD/CAM programming, production supervision, and precision manufacturing.</h2>
+            <h2 class="section-header">Experience in CNC machining, CAD/CAM programming, production supervision, and precision manufacturing.</h2>
 
             <div class="experience-timeline">
               <article class="experience-entry">
@@ -1961,9 +2273,8 @@
                 <p class="experience-company">Confidential Advanced CNC Manufacturing Company</p>
                 <p class="experience-dates">April 2026 – Present</p>
                 <ul class="experience-responsibilities">
-                  <li>Operating DMG MORI CLX 450 TC Mill-Turn.</li>
-                  <li>CNC turning, milling, setup, and program development.</li>
-                  <li>Working on precision Oil &amp; Gas components.</li>
+                  <li>Perform CNC turning, milling, machine setup, and program development.</li>
+                  <li>Work on precision components for the oil and gas industry.</li>
                 </ul>
               </article>
 
@@ -2032,7 +2343,7 @@
           <div class="dark-panel">
             <div class="section-tag" style="color: #d08a9f;">Professional values</div>
             <div class="values-list">
-              <div class="value-item"><span class="checkmark">✓</span><span>Technical problem solving</span></div>
+              <div class="value-item"><span class="checkmark">✓</span><span>Technical problem-solving</span></div>
               <div class="value-item"><span class="checkmark">✓</span><span>Process stability</span></div>
               <div class="value-item"><span class="checkmark">✓</span><span>Tooling awareness</span></div>
               <div class="value-item"><span class="checkmark">✓</span><span>Precision and quality mindset</span></div>
@@ -2087,12 +2398,12 @@
             </span>
             <div>
               <div class="section-tag">PRIVATE DOCUMENT</div>
-              <h2 id="cv-dialog-title">Request my CV</h2>
+              <h2 id="cv-dialog-title">Request CV</h2>
             </div>
           </div>
           <button class="cv-close" type="button" data-close-cv-dialog aria-label="Close dialog">&times;</button>
         </div>
-        <p class="cv-dialog-copy">Tell me where to send it. I’ll prepare an email request with your details so I can follow up with the CV.</p>
+        <p class="cv-dialog-copy">Enter your work email and company name to open a prefilled request email. Send it to request a follow-up about the CV.</p>
         <form class="cv-form" id="cv-request-form">
           <label for="requester-email">
             Work email
@@ -2102,7 +2413,7 @@
             Company
             <input id="requester-company" name="company" type="text" autocomplete="organization" placeholder="Company name" required />
           </label>
-          <button class="btn btn-primary" type="submit">Continue to email <span aria-hidden="true">→</span></button>
+          <button class="btn btn-primary" type="submit">Open request email <span aria-hidden="true">→</span></button>
         </form>
         <p class="cv-dialog-status" id="cv-dialog-status" role="status" hidden></p>
       </div>
@@ -2131,9 +2442,6 @@
       servicesSection.replaceWith(servicesContent)
       expertiseSection.append(servicesContent)
 
-      const primaryMachine = experienceSection.querySelector('.experience-entry .experience-responsibilities li')
-      document.getElementById('primary-machine-details').append(primaryMachine)
-
       const softwareCategories = softwareSection.querySelectorAll('.software-category')
       const controlSystems = softwareCategories[softwareCategories.length - 1]
       document.getElementById('cnc-control-systems').append(controlSystems)
@@ -2157,6 +2465,331 @@
 
       window.addEventListener('scroll', updateScrollState)
       updateScrollState()
+
+      const arabicTranslations = {
+        'Main navigation': 'التنقل الرئيسي',
+        'Switch to Arabic': 'التبديل إلى العربية',
+        'Switch to English': 'التبديل إلى الإنجليزية',
+        Home: 'الرئيسية',
+        About: 'نبذة عني',
+        Expertise: 'مجالات الخبرة',
+        Projects: 'المشاريع',
+        Experience: 'الخبرة العملية',
+        Certifications: 'الشهادات',
+        Contact: 'التواصل',
+        'Request CV': 'طلب السيرة الذاتية',
+        'Precision in Every Process': 'الدقة في كل خطوة',
+        'Advanced CNC & Manufacturing Specialist': 'أخصائي متقدم في تشغيل CNC والتصنيع',
+        'Multi-Axis Machining & Mill-Turn Operations': 'التشغيل متعدد المحاور وعمليات الخراطة والتفريز المتزامنة',
+        'Precision machining, CNC programming, tooling strategy, and process control for complex manufacturing environments. Supports teams in turning engineering drawings into reliable production output with speed, quality, and consistency.':
+          'تشغيل دقيق للماكينات، وبرمجة CNC، وتخطيط الأدوات، والتحكم في العمليات ضمن بيئات التصنيع المعقدة. دعم الفرق في تحويل الرسومات الهندسية إلى إنتاج موثوق بسرعة وجودة وثبات.',
+        'Explore Projects': 'استكشف المشاريع',
+        'Contact Me': 'تواصل معي',
+        '📍 Alexandria, Egypt': '📍 الإسكندرية، مصر',
+        '🌐 LinkedIn': '🌐 LinkedIn',
+        'Portrait of Muhammad Ahmed Kamal': 'صورة شخصية لمحمد أحمد كمال',
+        'Years of hands-on experience': 'سنوات من الخبرة العملية',
+        'Hours of hands-on work': 'ساعة من العمل العملي',
+        'Components machined': 'قطعة تم تشغيلها',
+        'CNC control systems': 'أنظمة تحكم CNC',
+        'Current focus: mill-turn machining': 'التركيز الحالي: تشغيل الخراطة والتفريز المتزامن',
+        'About Me': 'نبذة عني',
+        'CNC expertise built through hands-on production experience.': 'خبرة في تشغيل CNC اكتسبتها من العمل المباشر في الإنتاج.',
+        'CNC machining specialist with practical experience in turning, milling, mill-turn operations, and multi-axis machining. Professional experience includes CNC programming, machine setup, tooling selection, process planning, troubleshooting, and quality-focused execution.':
+          'متخصص في تشغيل ماكينات CNC، بخبرة عملية في الخراطة والتفريز والتشغيل المتزامن ومتعدد المحاور. تشمل الخبرة المهنية برمجة CNC، وتجهيز الماكينات، واختيار الأدوات، وتخطيط العمليات، ومعالجة المشكلات، والتنفيذ مع التركيز على الجودة.',
+        'Successful manufacturing depends on the relationship between material behavior, machine capability, cutting conditions, tooling, and geometry control. These factors form the foundation of an effective machining approach.':
+          'يعتمد نجاح التصنيع على الترابط بين خصائص المواد، وقدرات الماكينات، وظروف القطع، والأدوات، وضبط الأبعاد الهندسية. وتشكل هذه العوامل أساسًا فعالًا لعمليات التشغيل.',
+        'Core strengths': 'نقاط القوة الأساسية',
+        'Programming and editing G-code / M-code': 'برمجة وتعديل G-code وM-code',
+        'Machine setup, workholding, and tooling selection': 'تجهيز الماكينات وتثبيت المشغولات واختيار الأدوات',
+        'Multi-axis turning and complex component machining': 'الخراطة متعددة المحاور وتشغيل المكونات المعقدة',
+        'Process planning, troubleshooting, and quality focus': 'تخطيط العمليات ومعالجة المشكلات والتركيز على الجودة',
+        'Technical expertise across advanced machining and manufacturing operations.':
+          'خبرة فنية في عمليات التشغيل والتصنيع المتقدمة.',
+        'CNC Turning': 'الخراطة باستخدام CNC',
+        'Precision-focused machining backed by strong process knowledge and disciplined setup practices.':
+          'تشغيل يركز على الدقة، مدعوم بفهم قوي للعمليات وممارسات إعداد منضبطة.',
+        'CNC Milling': 'التفريز باستخدام CNC',
+        'Precision machining focused on performance, process stability, and consistent quality.':
+          'تشغيل دقيق يركز على الأداء واستقرار العملية وثبات الجودة.',
+        'Mill-Turn': 'الخراطة والتفريز المتزامنان',
+        'Managing complex workholding and multi-operation cycles for demanding components.':
+          'إدارة تثبيت المشغولات المعقدة ودورات التشغيل متعددة العمليات للمكونات الدقيقة.',
+        'Multi-Axis': 'التشغيل متعدد المحاور',
+        'Developing advanced strategies for efficient machining of complex geometries.':
+          'تطوير استراتيجيات متقدمة لتشغيل الأشكال الهندسية المعقدة بكفاءة.',
+        'Machines & CNC Control Systems': 'الماكينات وأنظمة التحكم CNC',
+        'Technical Toolkit': 'الأدوات التقنية',
+        'Software & Technical Tools': 'البرامج والأدوات التقنية',
+        'CAD, CAM, and CNC programming tools used for engineering design, machining strategy, simulation, and manufacturing.':
+          'أدوات CAD وCAM وبرمجة CNC المستخدمة في التصميم الهندسي، وتخطيط التشغيل، والمحاكاة، والتصنيع.',
+        'Advanced Proficiency': 'مستوى متقدم',
+        Advanced: 'متقدم',
+        'Intermediate Proficiency': 'مستوى متوسط',
+        Intermediate: 'متوسط',
+        'Working Knowledge': 'معرفة عملية',
+        'Working knowledge': 'معرفة عملية',
+        'Design & Productivity Tools': 'أدوات التصميم والإنتاجية',
+        'CNC Programming & Control Systems': 'برمجة CNC وأنظمة التحكم',
+        'Control system': 'نظام تحكم',
+        'Programming environment': 'بيئة برمجة',
+        Programming: 'البرمجة',
+        'Practical familiarity with G-code and M-code programming.':
+          'إلمام عملي ببرمجة G-code وM-code.',
+        Services: 'الخدمات',
+        'Focused support for reliable processes and high-precision production.':
+          'دعم متخصص لعمليات موثوقة وإنتاج عالي الدقة.',
+        'CNC Programming': 'برمجة CNC',
+        'Creating efficient, safe, production-ready CNC programs for turning and milling operations.':
+          'إنشاء برامج CNC فعالة وآمنة وجاهزة للإنتاج لعمليات الخراطة والتفريز.',
+        'G-code / M-code editing': 'تعديل G-code وM-code',
+        'Program optimization': 'تحسين البرامج',
+        'Process validation': 'التحقق من صلاحية العمليات',
+        'Machine Setup & Execution': 'إعداد الماكينات والتنفيذ',
+        'Guidance on toolpaths, workholding, offsets, and machine readiness to help ensure quality and efficiency.':
+          'إرشادات حول مسارات الأدوات وتثبيت المشغولات والإزاحات وجاهزية الماكينة لضمان الجودة والكفاءة.',
+        'Workholding planning': 'تخطيط تثبيت المشغولات',
+        'Tooling strategy': 'استراتيجية اختيار الأدوات',
+        'First-piece verification': 'فحص القطعة الأولى',
+        'Process Improvement': 'تحسين العمليات',
+        'Identifying bottlenecks, reducing scrap risk, and improving productivity in demanding production environments.':
+          'تحديد الاختناقات وتقليل مخاطر الهدر وتحسين الإنتاجية في بيئات التصنيع ذات المتطلبات العالية.',
+        'Technical troubleshooting': 'معالجة المشكلات الفنية',
+        'Cutting condition analysis': 'تحليل ظروف القطع',
+        'Quality-driven refinement': 'تحسين العمليات بما يضمن الجودة',
+        'Learning & Credentials': 'التعلم والمؤهلات',
+        'Certifications & Professional Development': 'الشهادات والتطوير المهني',
+        'Ongoing development of technical knowledge and practical skills in CNC machining, manufacturing technology, CAD/CAM, materials science, and related fields.':
+          'تطوير مستمر للمعرفة الفنية والمهارات العملية في تشغيل CNC وتقنيات التصنيع وCAD/CAM وعلم المواد والمجالات ذات الصلة.',
+        'CNC Machining & Cutting Technology': 'تشغيل CNC وتقنيات القطع',
+        'CAD/CAM & Digital Manufacturing': 'CAD/CAM والتصنيع الرقمي',
+        'Materials Science & Manufacturing': 'علم المواد والتصنيع',
+        'Quality & Professional Development': 'الجودة والتطوير المهني',
+        'Featured work': 'أعمال مختارة',
+        'Machining projects that combine geometry, tooling, and execution.':
+          'مشاريع تشغيل تجمع بين هندسة الأشكال واختيار الأدوات والتنفيذ.',
+        Process: 'منهجية العمل',
+        'From engineering drawing to final quality assurance.':
+          'من قراءة الرسم الهندسي إلى ضمان الجودة النهائي.',
+        'Interpret engineering drawings and review critical features.':
+          'قراءة الرسومات الهندسية ومراجعة الخصائص الأساسية.',
+        'Develop machining strategies, select tooling, and plan setups.':
+          'تطوير استراتيجيات التشغيل واختيار الأدوات وتخطيط الإعداد.',
+        'Program, simulate, and verify CAM operations before machining.':
+          'برمجة عمليات CAM ومحاكاتها والتحقق منها قبل التشغيل.',
+        'Set up the machine, run production, and inspect finished parts.':
+          'إعداد الماكينة وتنفيذ الإنتاج وفحص القطع النهائية.',
+        'Professional Experience': 'الخبرة المهنية',
+        'Experience in CNC machining, CAD/CAM programming, production supervision, and precision manufacturing.':
+          'خبرة في تشغيل CNC وبرمجة CAD/CAM والإشراف على الإنتاج والتصنيع الدقيق.',
+        'Precision CNC Machinist / Multi-Axis Specialist': 'فني تشغيل CNC دقيق / متخصص في التشغيل متعدد المحاور',
+        'Confidential Advanced CNC Manufacturing Company': 'شركة متخصصة في تصنيع CNC (اسمها غير معلن)',
+        'April 2026 – Present': 'أبريل 2026 – حتى الآن',
+        'Perform CNC turning, milling, machine setup, and program development.':
+          'تنفيذ عمليات الخراطة والتفريز باستخدام CNC، وتجهيز الماكينات، وتطوير البرامج.',
+        'Work on precision components for the oil and gas industry.':
+          'العمل على مكونات دقيقة لصناعة النفط والغاز.',
+        'Head of CNC Turning Section': 'رئيس قسم الخراطة باستخدام CNC',
+        'July 2025 – April 2026': 'يوليو 2025 – أبريل 2026',
+        'Led CNC turning section activities and production operations.':
+          'قيادة أنشطة قسم الخراطة باستخدام CNC وعمليات الإنتاج.',
+        'Coordinated machining workflows and technical problem-solving.':
+          'تنسيق سير عمليات التشغيل ومعالجة المشكلات الفنية.',
+        'CNC Supervisor': 'مشرف عمليات CNC',
+        'February 2025 – July 2025': 'فبراير 2025 – يوليو 2025',
+        'Supervised CNC operations and production activities.':
+          'الإشراف على عمليات CNC وأنشطة الإنتاج.',
+        'Monitored machine performance and workflow execution.':
+          'متابعة أداء الماكينات وتنفيذ سير العمل.',
+        'Administrative CNC Operations Supervisor': 'مشرف إداري لعمليات CNC',
+        'January 2024 – May 2025': 'يناير 2024 – مايو 2025',
+        'Coordinated CNC operations and production follow-up.':
+          'تنسيق عمليات CNC ومتابعة الإنتاج.',
+        'Managed operational reporting and workflow support.':
+          'إدارة التقارير التشغيلية ودعم سير العمل.',
+        'Remote CNC Programmer': 'مبرمج CNC عن بُعد',
+        'May 2024 – August 2024': 'مايو 2024 – أغسطس 2024',
+        'Provided remote CNC programming support.': 'تقديم دعم عن بُعد في برمجة CNC.',
+        'Prepared CAD/CAM machining programs.': 'إعداد برامج التشغيل باستخدام CAD/CAM.',
+        'CNC Operator & Programmer': 'مشغل ومبرمج CNC',
+        'March 2023 – December 2023': 'مارس 2023 – ديسمبر 2023',
+        'Operated and programmed CNC machines.': 'تشغيل ماكينات CNC وبرمجتها.',
+        'Worked with turning, milling, and laser operations.':
+          'العمل في عمليات الخراطة والتفريز والقطع بالليزر.',
+        'CNC Operator': 'مشغل CNC',
+        'January 2023 – March 2023': 'يناير 2023 – مارس 2023',
+        'Performed CNC machine operation and machining tasks.':
+          'تشغيل ماكينات CNC وتنفيذ مهام التشغيل.',
+        'Supported production and basic machine setup.':
+          'دعم الإنتاج والإعداد الأساسي للماكينات.',
+        'Professional values': 'القيم المهنية',
+        'Technical problem-solving': 'حل المشكلات الفنية',
+        'Process stability': 'استقرار العمليات',
+        'Tooling awareness': 'الإلمام بأدوات التشغيل',
+        'Precision and quality mindset': 'التركيز على الدقة والجودة',
+        'Continuous learning and improvement': 'التعلم والتحسين المستمران',
+        'Let’s connect': 'لنتواصل',
+        'Precision machining support for modern manufacturing teams.':
+          'دعم متخصص في التشغيل الدقيق لفرق التصنيع الحديثة.',
+        Email: 'البريد الإلكتروني',
+        Location: 'الموقع',
+        '© 2026 Muhammad Ahmed Kamal': '© 2026 محمد أحمد كمال',
+        'Precision in Every Process. Continuous Improvement in Every Operation.':
+          'الدقة في كل خطوة، والتحسين المستمر في كل عملية.',
+        'Certificate preview': 'معاينة الشهادة',
+        Close: 'إغلاق',
+        'PRIVATE DOCUMENT': 'مستند خاص',
+        'Close dialog': 'إغلاق النافذة',
+        'Enter your work email and company name to open a prefilled request email. Send it to request a follow-up about the CV.':
+          'أدخل بريدك الإلكتروني الخاص بالعمل واسم الشركة لفتح رسالة طلب مُعدّة مسبقًا. أرسلها لمتابعة طلب السيرة الذاتية.',
+        'Work email': 'البريد الإلكتروني للعمل',
+        Company: 'الشركة',
+        'Company name': 'اسم الشركة',
+        'Open request email': 'فتح رسالة الطلب',
+        'Your email app should open with a prefilled request. Send the email, and Muhammad will follow up with the CV.':
+          'من المفترض أن يفتح تطبيق البريد رسالة طلب مُعدّة مسبقًا. أرسل الرسالة، وسيتابع معك محمد بشأن السيرة الذاتية.',
+      }
+
+      const originalTextNodes = []
+      const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT)
+
+      while (textWalker.nextNode()) {
+        const node = textWalker.currentNode
+        const key = node.nodeValue.replace(/\s+/g, ' ').trim()
+        const isProjectOrCertificateDetail = node.parentElement.closest(
+          '#projects .project-card, #certifications .certification-card',
+        )
+        if (!isProjectOrCertificateDetail && Object.prototype.hasOwnProperty.call(arabicTranslations, key)) {
+          originalTextNodes.push({ node, english: node.nodeValue, key })
+        }
+      }
+
+      const originalAttributes = []
+      document.querySelectorAll('[aria-label], [alt], [placeholder]').forEach((element) => {
+        ;['aria-label', 'alt', 'placeholder'].forEach((attribute) => {
+          const value = element.getAttribute(attribute)
+          if (Object.prototype.hasOwnProperty.call(arabicTranslations, value)) {
+            originalAttributes.push({ element, attribute, english: value })
+          }
+        })
+      })
+
+      const languageToggle = document.getElementById('language-toggle')
+      const descriptionMeta = document.querySelector('meta[name="description"]')
+      const openGraphTitle = document.querySelector('meta[property="og:title"]')
+      const openGraphDescription = document.querySelector('meta[property="og:description"]')
+      const openGraphLocale = document.querySelector('meta[property="og:locale"]')
+      const twitterTitle = document.querySelector('meta[name="twitter:title"]')
+      const twitterDescription = document.querySelector('meta[name="twitter:description"]')
+      let currentLanguage = new URLSearchParams(window.location.search).get('lang') === 'ar' ? 'ar' : 'en'
+
+      const applyLanguage = (language) => {
+        currentLanguage = language
+        const isArabic = language === 'ar'
+        document.documentElement.lang = language
+        document.documentElement.dir = isArabic ? 'rtl' : 'ltr'
+
+        originalTextNodes.forEach(({ node, english, key }) => {
+          if (!isArabic) {
+            node.nodeValue = english
+            return
+          }
+
+          const leadingWhitespace = english.match(/^\s*/)[0]
+          const trailingWhitespace = english.match(/\s*$/)[0]
+          node.nodeValue = `${leadingWhitespace}${arabicTranslations[key]}${trailingWhitespace}`
+        })
+
+        originalAttributes.forEach(({ element, attribute, english }) => {
+          element.setAttribute(attribute, isArabic ? arabicTranslations[english] : english)
+        })
+
+        const title = isArabic
+          ? 'محمد أحمد كمال | أخصائي تشغيل CNC'
+          : 'Muhammad Ahmed Kamal | CNC Machinist'
+        const description = isArabic
+          ? 'الملف المهني لمحمد أحمد كمال، أخصائي متقدم في تشغيل CNC والتشغيل متعدد المحاور في الإسكندرية، مصر.'
+          : 'Professional portfolio of Muhammad Ahmed Kamal, an advanced CNC and multi-axis machining specialist in Alexandria, Egypt.'
+
+        document.title = title
+        descriptionMeta.content = description
+        openGraphTitle.content = title
+        openGraphDescription.content = description
+        openGraphLocale.content = isArabic ? 'ar_AR' : 'en_US'
+        twitterTitle.content = title
+        twitterDescription.content = description
+        languageToggle.textContent = isArabic ? 'English' : 'العربية'
+        languageToggle.setAttribute('aria-label', isArabic ? 'Switch to English' : 'Switch to Arabic')
+        languageToggle.setAttribute('aria-pressed', String(isArabic))
+
+        const url = new URL(window.location.href)
+        if (isArabic) {
+          url.searchParams.set('lang', 'ar')
+        } else {
+          url.searchParams.delete('lang')
+        }
+        window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`)
+      }
+
+      languageToggle.addEventListener('click', () => {
+        applyLanguage(currentLanguage === 'en' ? 'ar' : 'en')
+      })
+      applyLanguage(currentLanguage)
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+      if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible')
+              observer.unobserve(entry.target)
+            }
+          })
+        }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' })
+
+        const revealElements = document.querySelectorAll(
+          '.section-tag, .section-header, .expertise-card, .service-card, .software-tool-card, .certification-card, .project-card, .step, .experience-entry, .value-item',
+        )
+
+        revealElements.forEach((element, index) => {
+          element.classList.add('scroll-reveal')
+          element.style.setProperty('--reveal-delay', `${(index % 4) * 65}ms`)
+          revealObserver.observe(element)
+        })
+
+        const statObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return
+
+            const valueElement = entry.target
+            const match = valueElement.textContent.trim().match(/^([\d,]+)(\+?)$/)
+            observer.unobserve(valueElement)
+            if (!match) return
+
+            const target = Number(match[1].replace(/,/g, ''))
+            const suffix = match[2]
+            const duration = 850
+            let startTime
+
+            const updateCount = (timestamp) => {
+              if (startTime === undefined) startTime = timestamp
+              const progress = Math.min((timestamp - startTime) / duration, 1)
+              const easedProgress = 1 - (1 - progress) ** 3
+              const currentValue = Math.round(target * easedProgress)
+              valueElement.textContent = `${currentValue.toLocaleString('en-US')}${suffix}`
+
+              if (progress < 1) requestAnimationFrame(updateCount)
+            }
+
+            requestAnimationFrame(updateCount)
+          })
+        }, { threshold: 0.65 })
+
+        document.querySelectorAll('.stat-value').forEach((valueElement) => {
+          statObserver.observe(valueElement)
+        })
+      }
 
       const certificateDialog = document.getElementById('certificate-dialog')
       const certificateDialogImage = document.getElementById('certificate-dialog-image')
@@ -2207,11 +2840,11 @@
         const company = formData.get('company').trim()
         const subject = encodeURIComponent('CV request')
         const body = encodeURIComponent(
-          `Hello Muhammad,\n\nI would like to request your CV.\n\nName/email: ${email}\nCompany: ${company}\n\nThank you.`,
+          `Hello Muhammad,\n\nPlease follow up on the CV request below.\n\nEmail: ${email}\nCompany: ${company}\n\nThank you.`,
         )
 
         window.location.href = `mailto:muhammad.a.kamal1999@gmail.com?subject=${subject}&body=${body}`
-        cvDialogStatus.textContent = 'Your email app should open with the request. Send that email and Muhammad will follow up with the CV.'
+        cvDialogStatus.textContent = 'Your email app should open with a prefilled request. Send the email, and Muhammad will follow up with the CV.'
         cvDialogStatus.hidden = false
       })
     </script>
