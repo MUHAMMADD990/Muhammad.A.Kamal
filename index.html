@@ -623,7 +623,7 @@
       }
 
       section {
-        padding: 84px 0;
+        padding: 72px 0;
       }
 
       .section-tag {
@@ -1067,6 +1067,66 @@
         margin-top: 32px;
       }
 
+      .videos-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 32px;
+      }
+
+      .video-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: #100e12;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+      }
+
+      .video-frame {
+        position: relative;
+        aspect-ratio: 9 / 16;
+        display: block;
+        overflow: hidden;
+        background: #201c22;
+      }
+
+      .video-frame img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.35s ease;
+      }
+
+      .video-card:hover .video-frame img {
+        transform: scale(1.04);
+      }
+
+      .video-play {
+        position: absolute;
+        left: 50%;
+        bottom: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        transform: translateX(-50%);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 999px;
+        background: rgba(11, 10, 13, 0.78);
+        color: #fff;
+        font-size: 18px;
+        backdrop-filter: blur(8px);
+        transition: 0.2s ease;
+      }
+
+      .video-card:hover .video-play {
+        background: var(--primary);
+        transform: translateX(-50%) scale(1.06);
+      }
+
       .project-card-featured {
         display: grid;
         grid-column: 1 / -1;
@@ -1349,6 +1409,10 @@
           grid-template-columns: 1fr 1fr;
         }
 
+        .videos-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
         .software-category-secondary .software-tool-grid {
           grid-template-columns: 1fr 1fr;
         }
@@ -1400,6 +1464,10 @@
       }
 
       @media (max-width: 640px) {
+        section {
+          padding: 56px 0;
+        }
+
         .hero { padding-top: 52px; }
 
         .gcode-backdrop {
@@ -1426,6 +1494,10 @@
         .stats,
         .expertise-grid {
           grid-template-columns: 1fr;
+        }
+
+        .videos-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .software-category-secondary .software-tool-grid {
@@ -1603,6 +1675,7 @@
           <a href="#about">About</a>
           <a href="#expertise">Expertise</a>
           <a href="#projects">Projects</a>
+          <a href="#videos">Videos</a>
           <a href="#experience">Experience</a>
           <a href="#certifications">Certifications</a>
           <a href="#contact">Contact</a>
@@ -2021,17 +2094,6 @@ G1 X83.545 Z118.5 F.2</pre>
             <h3><span>02</span> CAD/CAM &amp; Digital Manufacturing</h3>
             <div class="certification-grid">
               <article class="certification-card">
-                <button class="certification-preview" type="button" data-certificate-image="public/cert-solidcam-academic-professional.jpg" data-certificate-title="Certified SolidCAM Academic Professional" data-certificate-issuer="SolidCAM" data-certificate-date="June 25, 2026" aria-label="Enlarge SolidCAM Academic Professional certificate">
-                  <img src="public/cert-solidcam-academic-professional.jpg" alt="SolidCAM Certified Academic Professional certificate" loading="lazy" />
-                </button>
-                <div class="certification-details">
-                  <span class="certification-type">Academic course certificate</span>
-                  <h4>Certified SolidCAM Academic Professional</h4>
-                  <p class="certification-issuer">SolidCAM</p>
-                  <p class="certification-date">Completed June 25, 2026</p>
-                </div>
-              </article>
-              <article class="certification-card">
                 <button class="certification-preview" type="button" data-certificate-image="public/cert-autodesk-cam-multi-axis.jpg" data-certificate-title="CAM Multi-Axis" data-certificate-issuer="Autodesk" data-certificate-date="October 23, 2026" aria-label="Enlarge Autodesk CAM Multi-Axis certificate">
                   <img src="public/cert-autodesk-cam-multi-axis.jpg" alt="Autodesk CAM Multi-Axis course certificate" loading="lazy" />
                 </button>
@@ -2231,6 +2293,27 @@ G1 X83.545 Z118.5 F.2</pre>
                 </p>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="videos" class="dark-panel">
+        <div class="container">
+          <div class="section-tag">From the workshop</div>
+          <h2 class="section-header">CNC machining in action.</h2>
+          <p class="lead-copy">Short clips showing precision setups, machining operations, and real production environments.</p>
+
+          <div class="videos-grid">
+            <article class="video-card"><a class="video-frame" href="https://youtube.com/shorts/WeucrhYhUNU" target="_blank" rel="noreferrer" aria-label="Watch CNC machining short 1 on YouTube"><img src="https://i.ytimg.com/vi/WeucrhYhUNU/hqdefault.jpg" alt="CNC machining short 1" loading="lazy" /><span class="video-play" aria-hidden="true">▶</span></a></article>
+            <article class="video-card"><a class="video-frame" href="https://youtube.com/shorts/E1raKFlRQv8" target="_blank" rel="noreferrer" aria-label="Watch CNC machining short 2 on YouTube"><img src="https://i.ytimg.com/vi/E1raKFlRQv8/hqdefault.jpg" alt="CNC machining short 2" loading="lazy" /><span class="video-play" aria-hidden="true">▶</span></a></article>
+            <article class="video-card"><a class="video-frame" href="https://youtube.com/shorts/IhlmYinTPck" target="_blank" rel="noreferrer" aria-label="Watch CNC machining short 3 on YouTube"><img src="https://i.ytimg.com/vi/IhlmYinTPck/hqdefault.jpg" alt="CNC machining short 3" loading="lazy" /><span class="video-play" aria-hidden="true">▶</span></a></article>
+            <article class="video-card"><a class="video-frame" href="https://youtube.com/shorts/untSXdn8DMY" target="_blank" rel="noreferrer" aria-label="Watch CNC machining short 4 on YouTube"><img src="https://i.ytimg.com/vi/untSXdn8DMY/hqdefault.jpg" alt="CNC machining short 4" loading="lazy" /><span class="video-play" aria-hidden="true">▶</span></a></article>
+            <article class="video-card"><a class="video-frame" href="https://youtube.com/shorts/k5FKLMmXV4E" target="_blank" rel="noreferrer" aria-label="Watch CNC machining short 5 on YouTube"><img src="https://i.ytimg.com/vi/k5FKLMmXV4E/hqdefault.jpg" alt="CNC machining short 5" loading="lazy" /><span class="video-play" aria-hidden="true">▶</span></a></article>
+            <article class="video-card"><a class="video-frame" href="https://youtube.com/shorts/GWllhiszBRc" target="_blank" rel="noreferrer" aria-label="Watch CNC machining short 6 on YouTube"><img src="https://i.ytimg.com/vi/GWllhiszBRc/hqdefault.jpg" alt="CNC machining short 6" loading="lazy" /><span class="video-play" aria-hidden="true">▶</span></a></article>
+            <article class="video-card"><a class="video-frame" href="https://youtube.com/shorts/KTGp17HU5Ws" target="_blank" rel="noreferrer" aria-label="Watch CNC machining short 7 on YouTube"><img src="https://i.ytimg.com/vi/KTGp17HU5Ws/hqdefault.jpg" alt="CNC machining short 7" loading="lazy" /><span class="video-play" aria-hidden="true">▶</span></a></article>
+            <article class="video-card"><a class="video-frame" href="https://youtube.com/shorts/0bLwdDi-ojM" target="_blank" rel="noreferrer" aria-label="Watch CNC machining short 8 on YouTube"><img src="https://i.ytimg.com/vi/0bLwdDi-ojM/hqdefault.jpg" alt="CNC machining short 8" loading="lazy" /><span class="video-play" aria-hidden="true">▶</span></a></article>
+            <article class="video-card"><a class="video-frame" href="https://youtube.com/shorts/5bQSdsaQobg" target="_blank" rel="noreferrer" aria-label="Watch CNC machining short 9 on YouTube"><img src="https://i.ytimg.com/vi/5bQSdsaQobg/hqdefault.jpg" alt="CNC machining short 9" loading="lazy" /><span class="video-play" aria-hidden="true">▶</span></a></article>
+            <article class="video-card"><a class="video-frame" href="https://youtube.com/shorts/K5hYf5kV8hI" target="_blank" rel="noreferrer" aria-label="Watch CNC machining short 10 on YouTube"><img src="https://i.ytimg.com/vi/K5hYf5kV8hI/hqdefault.jpg" alt="CNC machining short 10" loading="lazy" /><span class="video-play" aria-hidden="true">▶</span></a></article>
           </div>
         </div>
       </section>
@@ -2450,6 +2533,7 @@ G1 X83.545 Z118.5 F.2</pre>
         heroSection,
         main.querySelector('#about'),
         expertiseSection,
+        main.querySelector('#videos'),
         machinesSection,
         softwareSection,
         projectsSection,
@@ -2474,6 +2558,7 @@ G1 X83.545 Z118.5 F.2</pre>
         About: 'نبذة عني',
         Expertise: 'مجالات الخبرة',
         Projects: 'المشاريع',
+        Videos: 'الفيديوهات',
         Experience: 'الخبرة العملية',
         Certifications: 'الشهادات',
         Contact: 'التواصل',
@@ -2568,6 +2653,10 @@ G1 X83.545 Z118.5 F.2</pre>
         'Featured work': 'أعمال مختارة',
         'Machining projects that combine geometry, tooling, and execution.':
           'مشاريع تشغيل تجمع بين هندسة الأشكال واختيار الأدوات والتنفيذ.',
+        'From the workshop': 'من ورشة العمل',
+        'CNC machining in action.': 'تشغيل CNC أثناء العمل.',
+        'Short clips showing precision setups, machining operations, and real production environments.':
+          'مقاطع قصيرة تعرض الإعدادات الدقيقة وعمليات التشغيل وبيئات الإنتاج الحقيقية.',
         Process: 'منهجية العمل',
         'From engineering drawing to final quality assurance.':
           'من قراءة الرسم الهندسي إلى ضمان الجودة النهائي.',
@@ -2749,7 +2838,7 @@ G1 X83.545 Z118.5 F.2</pre>
         }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' })
 
         const revealElements = document.querySelectorAll(
-          '.section-tag, .section-header, .expertise-card, .service-card, .software-tool-card, .certification-card, .project-card, .step, .experience-entry, .value-item',
+          '.section-tag, .section-header, .expertise-card, .service-card, .software-tool-card, .certification-card, .project-card, .video-card, .step, .experience-entry, .value-item',
         )
 
         revealElements.forEach((element, index) => {

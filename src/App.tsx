@@ -50,6 +50,19 @@ const projects = [
   { title: 'Conical Roller', category: 'Industrial Project', text: 'Precision taper turning with multi-pass finishing' },
 ]
 
+const machiningVideos = [
+  'WeucrhYhUNU',
+  'E1raKFlRQv8',
+  'IhlmYinTPck',
+  'untSXdn8DMY',
+  'k5FKLMmXV4E',
+  'GWllhiszBRc',
+  'KTGp17HU5Ws',
+  '0bLwdDi-ojM',
+  '5bQSdsaQobg',
+  'K5hYf5kV8hI',
+]
+
 function App() {
   return (
     <div className="min-h-screen text-slate-800">
@@ -67,6 +80,7 @@ function App() {
             <a href="#about" className="hover:text-slate-950">About</a>
             <a href="#expertise" className="hover:text-slate-950">Expertise</a>
             <a href="#projects" className="hover:text-slate-950">Projects</a>
+            <a href="#videos" className="hover:text-slate-950">Videos</a>
             <a href="#process" className="hover:text-slate-950">Process</a>
             <a href="#contact" className="hover:text-slate-950">Contact</a>
           </nav>
@@ -230,6 +244,41 @@ function App() {
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section id="videos" className="bg-slate-900 py-20 text-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-2xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-200">From the workshop</p>
+                <h2 className="mt-3 text-3xl font-black tracking-[-0.06em] text-white sm:text-4xl">CNC machining in action.</h2>
+                <p className="mt-4 max-w-xl leading-7 text-slate-300">
+                  Short clips showing precision setups, machining operations, and real production environments.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-5 lg:grid-cols-5">
+              {machiningVideos.map((videoId, index) => (
+                <article
+                  key={videoId}
+                  className="group overflow-hidden rounded-[1.35rem] border border-slate-700 bg-slate-950 shadow-[0_18px_45px_rgba(0,0,0,0.18)]"
+                >
+                  <div className="relative aspect-[9/16] overflow-hidden bg-slate-800">
+                    <iframe
+                      className="absolute inset-0 h-full w-full"
+                      src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`}
+                      title={`CNC machining short ${index + 1}`}
+                      loading="lazy"
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    />
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
